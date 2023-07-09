@@ -1,0 +1,27 @@
+
+._input{
+    
+    border:solid white 0px;
+  
+}
+
+._input:hover{
+   background-color: gray;
+   
+   border:solid white 0px;  
+}
+
+._input:focus{
+    border:solid white 0px;
+    outline: none;
+    caret-color: rgb(202, 176, 176);
+    
+}
+
+._input:disabled{
+    cursor:not-allowed;
+}
+
+:host{
+    height:100%;width:100%;padding: 0px;
+}

@@ -1,0 +1,74 @@
+
+    
+<div 
+  (mouseover) = "over()" 
+  (mousemove) = "over()" 
+  (mouseleave) = "leave()"
+  [matTooltip] = "getFullDateTimeDescription()"
+  style = "align-self: stretch" 
+  class = "no-wrap flex-start h-100"
+  >
+  <div class = "p-0" 
+    *ngIf = "!openDatePicker" 
+    style = "position: relative; height:100%;width:58px"
+    >
+    <div class = "text-secondary flex-center no-wrap h-100"
+    >
+      <strong *ngIf = "!openMinutesInput" 
+              (click) = "onClickMinutes()"
+      >
+        {{getMinutes()}}
+      </strong>
+      <input   
+        id = "input-minutes" nzSize = 'small' 
+        (blur) = "onBlurMinutes()"
+        (input) = "onInputMinutes($event)"
+        [value] = "getMinutes()"
+        *ngIf = "openMinutesInput" 
+        style = "width: 32px;" nz-input
+        >
+      <strong>:</strong>
+      <strong 
+          (click) = "onClickHours()"
+          *ngIf = "!openHoursInput" >
+              {{getHours()}}
+      </strong>
+      <input 
+        *ngIf = "openHoursInput"
+        id = "input-hours" 
+        nzSize = 'small'
+        (blur) = "onBlurHours()"
+        (input) = "onInputHours($event)"
+        [value] = "getHours()"
+        style = "width: 32px;" 
+        nz-input
+        >
+    </div>
+  </div>
+
+
+  <div 
+    *ngIf = "!openDatePicker" 
+    (click) = "onOpenDatePicker($event)" 
+    class = "flex-center ml-2 pointer no-wrap"
+    style = "align-items: stretch;">
+    <div 
+      class = "text-secondary flex-center">
+      <strong> {{getDateDescription()}} </strong>
+    </div>
+  </div>
+
+  <div 
+    style = "min-width:130px"
+    *ngIf = "openDatePicker">
+    <nz-date-picker 
+      [(ngModel)] = "btDateTime"
+      [nzPlaceHolder] = "'בחר תאריך אחר'"
+      nzFormat="yyyy-MM-dd "
+      nzPlaceHolder="Select Time"
+      (nzOnOpenChange) = "onDatePickerOpenStateChanges($event)"
+      (ngModelChange)="onChangeDate($event)"
+      >
+    </nz-date-picker> 
+  </div>
+</div>

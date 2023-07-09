@@ -1,0 +1,57 @@
+<div class = "bg-info" style="width: inherit; height:inherit;overflow:hidden;"
+   >
+   <div style = "position: relative;width: inherit; height:inherit" 
+      content = ""
+      class = "bg-success"
+      >
+      <input 
+      [id] = "id"
+      style="width: inherit; height:inherit"
+      (input) = "onInput($event)"
+      (keypress) = "onKey($event)"
+      (keydown) = "onKey($event)"
+      (focus) = "onFocus($event)"
+      (click) = "onFocus($event)"
+      (blur) = "onBlur($event)"
+      [placeholder] = "btPlaceHolder"
+      type = "tel"
+      class = "_input bg-light overflow-elipsis"
+      [value] = "(btAmount.amount)?(btAmount.amount):('')">
+
+      <div 
+         (click)=" tmp.isPlus = false; isChanged = true; onBlur()"
+         *ngIf = "tmp.isPlus && btAmountPlusShow" 
+         title = "" 
+         mat-ripple  style = "position:absolute;
+         left:1px; top:0px;max-width:20px;
+         border-radius: 50%; max-height: 35px;" 
+         class = " flex-center mt-1 pointer"
+         >
+         <mat-icon style = "font-size:15px;opacity:0.5" 
+            class = "mt-1 text-success ">
+            plus_one
+         </mat-icon>
+      </div>
+
+
+      
+      <div (click)="
+         tmp.isPlus = true;
+         isChanged = true;
+         onBlur()" 
+         title = ""
+         *ngIf = "!tmp.isPlus && btAmountPlusShow"
+         mat-ripple  style = "position:absolute;
+            left:1px; top:0px;max-width:20px;
+         border-radius: 50%; max-height: 35px;" 
+            class = " w-100 flex-center mt-2 pointer">
+         <div class = " text-center text-secondary"
+         >
+            <mat-icon style = "font-size:15px;opacity:0.5" 
+               class = "mt-1 text-secondary ">
+               add_circle_outline
+            </mat-icon>
+         </div>
+      </div>
+   </div>
+</div>

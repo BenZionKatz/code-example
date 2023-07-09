@@ -1,0 +1,9 @@
+._bg-high{
+    opacity: .8;
+  }
+  ._bg-low{
+    background-color: #74f07499;
+}
+._bg-mild{
+    background-color: #f0b45c99;
+}
